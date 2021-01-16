@@ -85,14 +85,20 @@ AVATAR_MAX_HEIGHT
 
 <!-- begin dummy container including tooltip (single line html table) -->
 
-<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_CLIENT_CREATED%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_CREATED%%</nobr></td></tr><tr><td><b><nobr>%%TR_CLIENT_LASTCONNECTED%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_LASTCONNECTED%%</nobr></td></tr><tr><td><b><nobr>%%TR_CLIENT_TOTALCONNECTIONS%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_TOTALCONNECTIONS%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_CLIENT_VERSION%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_VERSION%% %%CLIENT_VERSION_STATE%%</nobr></td></tr></table>">
+<!-- Extended Info start - Remove the title (always display it's content) -->
+<!--<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_CLIENT_CREATED%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_CREATED%%</nobr></td></tr><tr><td><b><nobr>%%TR_CLIENT_LASTCONNECTED%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_LASTCONNECTED%%</nobr></td></tr><tr><td><b><nobr>%%TR_CLIENT_TOTALCONNECTIONS%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_TOTALCONNECTIONS%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_CLIENT_VERSION%%:&nbsp;</nobr></b></td><td><nobr>%%CLIENT_VERSION%% %%CLIENT_VERSION_STATE%%</nobr></td></tr></table>">-->
+<div class="InfoFrame">
+<!-- Extended Info end -->
 
     <!-- begin title container -->
 
     <div class="InfoFrame_Title" dir="LTR">
         %%?CLIENT_COUNTRY_IMAGE_SCALED%%
-        <a href="client://%%CLIENT_ID%%/%%CLIENT_UNIQUE_ID%%~%%CLIENT_NAME_PERCENT_ENCODED%%" class="TextMessage_UserLink">&nbsp;%%CLIENT_NAME%%&nbsp;</a>
-        <span class="InfoFrame_CustomNick" title="Custom Nickname">[%%?CLIENT_CUSTOM_NICK_NAME%%]</span>
+        <a href="client://%%CLIENT_ID%%/%%CLIENT_UNIQUE_ID%%~%%CLIENT_NAME_PERCENT_ENCODED%%" class="TextMessage_UserLink">&nbsp;%%CLIENT_NAME%%</a>
+        %%??CLIENT_CUSTOM_NICK_NAME%%&nbsp;<span class="InfoFrame_CustomNick" title="Custom Nickname">[%%?CLIENT_CUSTOM_NICK_NAME%%]</span>
+        <!-- Extended Info start -->
+        &nbsp;<span class="extended-small" title="Client ID">(%%CLIENT_ID%%)</span>
+        <!-- Extended Info end -->
     </div>
 
     <hr />
@@ -101,12 +107,24 @@ AVATAR_MAX_HEIGHT
 
     <table class="InfoFrame_Table Space-Bot">
         <tr>
-            <td class="Bottom Label">%%TR_CLIENT_VERSION%%:</td>
-            <td class="Bottom">%%CLIENT_VERSION_LONG%%</td>
+            <td class="Label">%%TR_CLIENT_VERSION%%:</td>
+            <!-- Extended Info start - Complete version -->
+            <!--<td>%%CLIENT_VERSION_LONG%%</td>-->
+            <td>%%CLIENT_VERSION%% %%CLIENT_VERSION_STATE%% on %%CLIENT_PLATFORM%%</td>
+            <!-- Extended Info end -->
         </tr>
         <tr><td class="Label">%%TR_CLIENT_CONNECTED_SINCE%%:</td><td>%%CLIENT_CONNECTED_SINCE%%</td></tr>
         <tr><td class="Label">%%?TR_CLIENT_DESCRIPTION%%:</td><td>%%?CLIENT_DESCRIPTION%%</td></tr>
         <tr><td class="Label">%%?TR_CLIENT_VOLUME_MODIFIER%%:</td><td class="Important">%%?CLIENT_VOLUME_MODIFIER%% dB</td></tr>
+        <!-- Extended Info start -->
+        <tr><td colspan=2></td></tr>
+        <tr><td class="Label">Unique ID:</td><td>%%CLIENT_UNIQUE_ID%%</td></tr>
+        <tr><td class="Label">Database ID:</td><td>%%CLIENT_DATABASE_ID%%</td></tr>
+        <tr><td class="Label">%%TR_CLIENT_CREATED%%:</td><td>%%CLIENT_CREATED%%</td></tr>
+        <tr><td class="Label">%%TR_CLIENT_LASTCONNECTED%%:</td><td>%%CLIENT_LASTCONNECTED%%</td></tr>
+        <tr><td class="Label">%%TR_CLIENT_TOTALCONNECTIONS%%:</td><td>%%CLIENT_TOTALCONNECTIONS%%</td></tr>
+        <tr><td class="Label">Country:</td><td>%%CLIENT_COUNTRY_TOOLTIP%%</td></tr>
+        <!-- Extended Info end -->
     </table>
 
     <!-- begin plugin info table -->

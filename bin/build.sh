@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
+set -Eeuo pipefail
+cd "$(dirname "$(readlink -f "$0")")"
 
-DIR_ICONPACK='iconpack/'
-DIR_STYLE='style/'
-DIR_DIST='dist/'
-ARCHIVE_ICONPACK='dark.ts3_iconpack'
-ARCHIVE_STYLE='dark.ts3_style'
-ARCHIVE_ADDON='dark.ts3_addon'
-ZIP_PATH='/usr/bin/zip'
+DIR_ROOT="$(readlink -f "$(pwd)/..")"
+DIR_ICONPACK="${DIR_ROOT}/iconpack"
+DIR_STYLE="${DIR_ROOT}/style"
+DIR_DIST="${DIR_ROOT}/dist"
+ARCHIVE_ICONPACK='dark_extended.ts3_iconpack'
+ARCHIVE_STYLE='dark_extended.ts3_style'
+ARCHIVE_ADDON='dark_extended.ts3_addon'
 
-# Switch to bin dir
-DIR="$( pushd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+pushd() {
+    command pushd "$@" >/dev/null
+}
+
+popd() {
+    command popd "$@" >/dev/null
+}
 
 # ------------------------------------
 #  Cleanup
@@ -19,23 +26,12 @@ echo
 echo 'Running cleanup tasks'
 echo
 
-cd ..
-cd ${DIR_DIST}
-
 echo ' - Removing old icon pack archive...'
-if [[ -d ${ARCHIVE_ICONPACK} ]]; then
-    rm ${ARCHIVE_ICONPACK}
-fi
-
+rm -f "${DIR_DIST}/${ARCHIVE_ICONPACK}"
 echo ' - Removing old style archive...'
-if [[ -d ${ARCHIVE_STYLE} ]]; then
-    rm ${ARCHIVE_STYLE}
-fi
-
+rm -f "${DIR_DIST}/${ARCHIVE_STYLE}"
 echo ' - Removing old addon archive...'
-if [[ -d ${ARCHIVE_ADDON} ]]; then
-    rm ${ARCHIVE_ADDON}
-fi
+rm -f "${DIR_DIST}/${ARCHIVE_ADDON}"
 
 # ------------------------------------
 #  Build Packages
@@ -44,29 +40,28 @@ fi
 echo
 echo 'Building packages'
 echo
+pushd "$DIR_ROOT"
 
 echo ' - Building icon pack archive...'
-cd ..
-cd ${DIR_ICONPACK}
-${ZIP_PATH} ../dist/${ARCHIVE_ICONPACK} package.ini gfx
+pushd "$DIR_ICONPACK"
+zip -r "${DIR_DIST}/${ARCHIVE_ICONPACK}" -- 'package.ini' 'gfx'
+popd
 echo
-cd ..
 
 echo ' - Building style archive...'
-cd ${DIR_STYLE}
-${ZIP_PATH} ../dist/${ARCHIVE_STYLE} package.ini styles
+pushd "$DIR_STYLE"
+zip -r "${DIR_DIST}/${ARCHIVE_STYLE}" -- 'package.ini' 'styles'
+popd
 echo
-cd ..
 
 echo ' - Building addon archive...'
-cd ${DIR_ICONPACK}
-${ZIP_PATH} ../dist/${ARCHIVE_ADDON} gfx
-cd ..
-cd ${DIR_STYLE}
-${ZIP_PATH} ../dist/${ARCHIVE_ADDON} styles
-cd ..
-${ZIP_PATH} dist/${ARCHIVE_ADDON} package.ini
+pushd "$DIR_ICONPACK"
+zip -r "${DIR_DIST}/${ARCHIVE_ADDON}" -- 'gfx'
+popd
+pushd "$DIR_STYLE"
+zip -r "${DIR_DIST}/${ARCHIVE_ADDON}" -- 'styles'
+popd
+zip -r "${DIR_DIST}/${ARCHIVE_ADDON}" -- 'package.ini'
 echo
 
-# Return to previous dir
-popd
+exit 0

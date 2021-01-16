@@ -53,7 +53,10 @@ Templates must be placed in in a sub folder named like the theme (e.g. "styles/e
                     <td>
                         <img src="%%?CLIENT_COUNTRY_IMAGE%%" alt="" />&nbsp;&nbsp;
                         <span class="Highlight">%%CLIENT_NAME%%</span>
-                        &nbsp;<span class="Highlight">[%%?CLIENT_CUSTOM_NICK_NAME%%]</span>
+                        %%??CLIENT_CUSTOM_NICK_NAME%%&nbsp;<span class="Highlight">[%%?CLIENT_CUSTOM_NICK_NAME%%]</span>
+                        <!-- Extended Info start -->
+                        &nbsp;<span class="extended-small">(%%CLIENT_ID%%)</span>
+                        <!-- Extended Info end -->
                     </td>
                 </tr>
                 <tr><td class="label">%%TR_CLIENT_DESCRIPTION%%:</td><td>%%?CLIENT_DESCRIPTION%%</td></tr>

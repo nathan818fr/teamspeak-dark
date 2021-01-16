@@ -6,9 +6,9 @@ DIR_ROOT="$(readlink -f "$(pwd)/..")"
 DIR_ICONPACK="${DIR_ROOT}/iconpack"
 DIR_STYLE="${DIR_ROOT}/style"
 DIR_DIST="${DIR_ROOT}/dist"
-ARCHIVE_ICONPACK='dark.ts3_iconpack'
-ARCHIVE_STYLE='dark.ts3_style'
-ARCHIVE_ADDON='dark.ts3_addon'
+ARCHIVE_ICONPACK='dark_extended.ts3_iconpack'
+ARCHIVE_STYLE='dark_extended.ts3_style'
+ARCHIVE_ADDON='dark_extended.ts3_addon'
 
 pushd() {
     command pushd "$@" >/dev/null

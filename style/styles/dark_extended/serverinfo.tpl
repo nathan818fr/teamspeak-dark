@@ -52,6 +52,9 @@ SERVER_REFRESH_ICON
         %%SERVER_ICON_SCALED%%
         &nbsp;
         <a href="channelid://0" class="TextMessage_ServerLink">%%SERVER_NAME%%</a>
+        <!-- Extended Info start -->
+        &nbsp;<span class="extended-small" title="Server ID">(%%SERVER_ID%%)</span>
+        <!-- Extended Info end -->
     </div>
 
     <hr />
@@ -100,6 +103,7 @@ SERVER_REFRESH_ICON
         </tr>
         <!-- Extended Info start -->
         <tr><td colspan=2></td></tr>
+        <tr><td class="Label">Unique ID:</td><td>%%SERVER_UNIQUE_ID%%</td></tr>
         <tr><td class="Label">%%TR_SERVER_CLIENT_CONNECTIONS%%:</td><td>%%SERVER_CLIENT_CONNECTIONS%%</td></tr>
         <tr><td class="Label">Current Queries:</td><td>%%SERVER_QUERYCLIENTS_ONLINE%%</td></tr>
         <tr><td class="Label">Total ServerQuery Connections:</td><td>%%SERVER_QUERY_CLIENT_CONNECTIONS%%</td></tr>

@@ -120,6 +120,7 @@ AVATAR_MAX_HEIGHT
         <tr><td colspan=2></td></tr>
         <tr><td class="Label">Unique ID:</td><td>%%CLIENT_UNIQUE_ID%%</td></tr>
         <tr><td class="Label">Database ID:</td><td>%%CLIENT_DATABASE_ID%%</td></tr>
+        %%??CLIENT_MYTEAMSPEAK_ID%%<tr><td class="Label">myTeamSpeak ID:</td><td>%%?CLIENT_MYTEAMSPEAK_ID%%</td></tr>
         <tr><td class="Label">%%TR_CLIENT_CREATED%%:</td><td>%%CLIENT_CREATED%%</td></tr>
         <tr><td class="Label">%%TR_CLIENT_LASTCONNECTED%%:</td><td>%%CLIENT_LASTCONNECTED%%</td></tr>
         <tr><td class="Label">%%TR_CLIENT_TOTALCONNECTIONS%%:</td><td>%%CLIENT_TOTALCONNECTIONS%%</td></tr>

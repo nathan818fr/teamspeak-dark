@@ -67,7 +67,15 @@ TEMP_CHANNEL_TIME_TO_DELETE
 </style>
 
 <table id="info">
-    <tr><td class="label">%%TR_CHANNEL_NAME%%:</td><td class="Highlight">%%CHANNEL_NAME%%</td></tr>
+    <tr>
+        <td class="label">%%TR_CHANNEL_NAME%%:</td>
+        <td>
+            <span class="Highlight">%%CHANNEL_NAME%%</span>
+            <!-- Extended Info start -->
+            &nbsp;<span class="extended-small">(%%CHANNEL_ID%%)</span>
+            <!-- Extended Info end -->
+        </td>
+    </tr>
     <tr><td class="label">%%?TR_CHANNEL_TOPIC%%:</td><td>%%?CHANNEL_TOPIC%%</td></tr>
     <tr><td class="label">%%TR_CHANNEL_CODEC%%:</td><td>%%CHANNEL_CODEC%%</td></tr>
     <tr><td class="label">%%TR_CHANNEL_CODEC_QUALITY%%:</td><td>%%CHANNEL_CODEC_QUALITY%%</td></tr>

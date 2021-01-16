@@ -58,14 +58,24 @@ FILE_BROWSER_ICON
 
 <!-- begin dummy container including tooltip (single line html table) -->
 
-<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_CHANNEL_SUBSCRIPTION%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_SUBSCRIPTION%%</nobr></td></tr><tr><td><b><nobr>%%TR_CHANNEL_NEEDED_TALK_POWER%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_NEEDED_TALK_POWER%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_CHANNEL_CODEC_QUALITY%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_CODEC_QUALITY%% (%%TR_CHANNEL_CODEC_BITRATE%%: %%CHANNEL_CODEC_BITRATE%%/s)</nobr></td></tr><tr><td><b><nobr>%%TR_CHANNEL_VOICE_DATA_ENCRYPTED%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_VOICE_DATA_ENCRYPTED%%</nobr></td></tr></table>">
+<!-- Extended Info start - Remove the title (always display it's content) -->
+<!--<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_CHANNEL_SUBSCRIPTION%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_SUBSCRIPTION%%</nobr></td></tr><tr><td><b><nobr>%%TR_CHANNEL_NEEDED_TALK_POWER%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_NEEDED_TALK_POWER%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_CHANNEL_CODEC_QUALITY%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_CODEC_QUALITY%% (%%TR_CHANNEL_CODEC_BITRATE%%: %%CHANNEL_CODEC_BITRATE%%/s)</nobr></td></tr><tr><td><b><nobr>%%TR_CHANNEL_VOICE_DATA_ENCRYPTED%%:&nbsp;</nobr></b></td><td><nobr>%%CHANNEL_VOICE_DATA_ENCRYPTED%%</nobr></td></tr></table>">-->
+<div class="InfoFrame">
+<!-- Extended Info end -->
 
     <!-- begin title container -->
 
-    <div class="InfoFrame_Title" dir="LTR">
+    <div class="InfoFrame_Title" dir="LTR"
+        <!-- Extended Info start -->
+        title="Channel Order: %%CHANNEL_ORDER%%"
+        <!-- Extended Info end -->
+    >
         %%CHANNEL_ICON_SCALED%%
         &nbsp;
         <a href="channelid://%%CHANNEL_ID%%" class="TextMessage_ChannelLink">%%CHANNEL_NAME%%</a>
+        <!-- Extended Info start -->
+        &nbsp;<span class="extended-small" title="Channel ID">(%%CHANNEL_ID%%)</span>
+        <!-- Extended Info end -->
     </div>
 
     <hr/>
@@ -84,6 +94,13 @@ FILE_BROWSER_ICON
         <tr><td class="Label">%%?TR_TEMP_CHANNEL_TIME_TO_DELETE%%:</td><td class="Important">%%?TEMP_CHANNEL_TIME_TO_DELETE%%</td></tr>
         <tr><td class="Label">%%TR_CHANNEL_CLIENTS_COUNT%%:</td><td>%%CHANNEL_CLIENTS_COUNT%% / %%CHANNEL_FLAG_MAXCLIENTS%%</td></tr>
         <tr><td class="Label">%%?TR_CHANNEL_MODERATED%%:</td><td class="Important">%%CHANNEL_MODERATED_ICON%%&nbsp;&nbsp;%%TR_YES%%</td></tr>
+        <!-- Extended Info start -->
+        <tr><td colspan=2></td></tr>
+        <tr><td class="Label">%%TR_CHANNEL_SUBSCRIPTION%%:</td><td>%%CHANNEL_SUBSCRIPTION%%</td></tr>
+        <tr><td class="Label">%%TR_CHANNEL_NEEDED_TALK_POWER%%:</td><td>%%CHANNEL_NEEDED_TALK_POWER%%</td></tr>
+        <tr><td class="Label">%%TR_CHANNEL_CODEC_QUALITY%%:</td><td>%%CHANNEL_CODEC_QUALITY%% (%%TR_CHANNEL_CODEC_BITRATE%%: %%CHANNEL_CODEC_BITRATE%%/s)</td></tr>
+        <tr><td class="Label">%%TR_CHANNEL_VOICE_DATA_ENCRYPTED%%:</td><td>%%CHANNEL_VOICE_DATA_ENCRYPTED%%</td></tr>
+        <!-- Extended Info end -->
         %%?PLUGIN_INFO_DATA%%
     </table>
 

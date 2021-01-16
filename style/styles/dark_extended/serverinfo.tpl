@@ -41,7 +41,10 @@ SERVER_REFRESH_ICON
 
 <!-- begin dummy container including tooltip (single line html table) -->
 
-<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_SERVER_CLIENTS_ONLINE%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_CLIENTS_ONLINE%% / %%SERVER_MAXCLIENTS%%</nobr></td></tr><tr><td><b><nobr>%%TR_SERVER_CLIENT_CONNECTIONS%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_CLIENT_CONNECTIONS%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_SERVER_VERSION%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_VERSION%%</nobr></td></tr></table>">
+<!-- Extended Info start - Remove the title (always display it's content) -->
+<!--<div class="InfoFrame" title="<table><tr><td><b><nobr>%%TR_SERVER_CLIENTS_ONLINE%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_CLIENTS_ONLINE%% / %%SERVER_MAXCLIENTS%%</nobr></td></tr><tr><td><b><nobr>%%TR_SERVER_CLIENT_CONNECTIONS%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_CLIENT_CONNECTIONS%%</nobr></td></tr><tr><td colspan=2><hr /></td></tr><tr><td><b><nobr>%%TR_SERVER_VERSION%%:&nbsp;</nobr></b></td><td><nobr>%%SERVER_VERSION%%</nobr></td></tr></table>">-->
+<div class="InfoFrame">
+<!-- Extended Info end -->
 
     <!-- begin title container -->
 
@@ -65,8 +68,11 @@ SERVER_REFRESH_ICON
             </td>
         </tr>
         <tr>
-            <td class="Bottom Label">%%TR_SERVER_VERSION%%:</td>
-            <td class="Bottom">%%SERVER_VERSION_SHORT%% on %%SERVER_PLATFORM%%</td>
+            <td class="Label">%%TR_SERVER_VERSION%%:</td>
+            <!-- Extended Info start - Complete version -->
+            <!--<td>%%SERVER_VERSION_SHORT%% on %%SERVER_PLATFORM%%</td>-->
+            <td>%%SERVER_VERSION%% on %%SERVER_PLATFORM%%</td>
+            <!-- Extended Info end -->
         </tr>
         <tr>
             <td class="Label">%%TR_SERVER_LICENSE%%:</td>
@@ -92,6 +98,12 @@ SERVER_REFRESH_ICON
             <td class="Label">%%TR_SERVER_CHANNELS_ONLINE%%:</td>
             <td>%%SERVER_CHANNELS_ONLINE%%</td>
         </tr>
+        <!-- Extended Info start -->
+        <tr><td colspan=2></td></tr>
+        <tr><td class="Label">%%TR_SERVER_CLIENT_CONNECTIONS%%:</td><td>%%SERVER_CLIENT_CONNECTIONS%%</td></tr>
+        <tr><td class="Label">Current Queries:</td><td>%%SERVER_QUERYCLIENTS_ONLINE%%</td></tr>
+        <tr><td class="Label">Total ServerQuery Connections:</td><td>%%SERVER_QUERY_CLIENT_CONNECTIONS%%</td></tr>
+        <!-- Extended Info end -->
         %%?PLUGIN_INFO_DATA%%
     </table>
 

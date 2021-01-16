@@ -96,6 +96,7 @@ FILE_BROWSER_ICON
         <tr><td class="Label">%%?TR_CHANNEL_MODERATED%%:</td><td class="Important">%%CHANNEL_MODERATED_ICON%%&nbsp;&nbsp;%%TR_YES%%</td></tr>
         <!-- Extended Info start -->
         <tr><td colspan=2></td></tr>
+        <tr><td class="Label">Full Name:</td><td>%%CHANNEL_NAME_PLAIN%%</td></tr>
         <tr><td class="Label">%%TR_CHANNEL_SUBSCRIPTION%%:</td><td>%%CHANNEL_SUBSCRIPTION%%</td></tr>
         <tr><td class="Label">%%TR_CHANNEL_NEEDED_TALK_POWER%%:</td><td>%%CHANNEL_NEEDED_TALK_POWER%%</td></tr>
         <tr><td class="Label">%%TR_CHANNEL_CODEC_QUALITY%%:</td><td>%%CHANNEL_CODEC_QUALITY%% (%%TR_CHANNEL_CODEC_BITRATE%%: %%CHANNEL_CODEC_BITRATE%%/s)</td></tr>
